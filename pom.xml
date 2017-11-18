@@ -6,7 +6,7 @@
 	<groupId>com.getlink</groupId>
 	<artifactId>GetLinkDownload</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>GetLinkDownload</name>
 	<description>API Get Link Downalod</description>
