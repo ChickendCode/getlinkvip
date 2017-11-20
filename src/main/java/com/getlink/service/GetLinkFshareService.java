@@ -2,8 +2,6 @@ package com.getlink.service;
 
 import java.net.CookieManager;
 import java.net.CookiePolicy;
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
