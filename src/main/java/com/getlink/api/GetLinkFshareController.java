@@ -21,7 +21,6 @@ public class GetLinkFshareController {
 	@Autowired
 	private GetLinkFshareService getLinkFshareService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/getlinkvip", method = RequestMethod.GET)
     public ResponseEntity<?> getLinkVip(@RequestParam String linkFshare) throws JSONException {
 		JSONObject jsonObject = new JSONObject();
