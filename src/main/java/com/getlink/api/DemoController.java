@@ -17,7 +17,7 @@ import com.getlink.constants.Constants;
 public class DemoController {
 
 	@RequestMapping(value = "/anhtindeptrai", method = RequestMethod.GET)
-	@CrossOrigin(origins = "http://localhost:80")
+	@CrossOrigin
 	public ResponseEntity<?> getDemo() throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("statusCode", Constants.STATUS_OK);
