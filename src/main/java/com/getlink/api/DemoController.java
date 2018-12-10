@@ -17,7 +17,7 @@ import com.getlink.constants.Constants;
 public class DemoController {
 
 	@RequestMapping(value = "/anhtindeptrai", method = RequestMethod.GET)
-	public ResponseEntity<?> getDemo(@RequestParam String linkFshare) throws JSONException {
+	public ResponseEntity<?> getDemo() throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("statusCode", Constants.STATUS_OK);
 		jsonObject.put("anhtindeptrai", "anhtindeptrai");
