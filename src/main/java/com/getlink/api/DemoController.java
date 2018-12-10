@@ -20,8 +20,8 @@ public class DemoController {
 	public ResponseEntity<?> getDemo() throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("statusCode", Constants.STATUS_OK);
-		jsonObject.put("question", "Anh tín có đẹp trai không?");
-		jsonObject.put("answer", "Có. Rất đẹp trai");
+		jsonObject.put("question", "Anh Tin co dep trai khong?");
+		jsonObject.put("answer", "Co. Rat dep trai");
 		ResponseEntity<String> retult = new ResponseEntity<String>(jsonObject.toString(), new HttpHeaders(),
 				HttpStatus.OK);
 		return retult;
