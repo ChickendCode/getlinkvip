@@ -1,5 +1,8 @@
 package com.getlink.api;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
@@ -8,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.getlink.constants.Constants;
@@ -22,6 +26,48 @@ public class DemoController {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("statusCode", Constants.STATUS_OK);
 		jsonObject.put("question", "Anh Tin co dep trai khong?");
+		jsonObject.put("answer", "Co. Rat dep trai");
+		ResponseEntity<String> retult = new ResponseEntity<String>(jsonObject.toString(), new HttpHeaders(),
+				HttpStatus.OK);
+		return retult;
+	}
+	
+	@RequestMapping(value = "/anhtindeptrai", method = RequestMethod.GET)
+	@CrossOrigin
+	public ResponseEntity<?> getDemo1(@RequestParam String id) throws JSONException {
+		JSONObject jsonObject = new JSONObject();
+		
+		JSONObject persion = new JSONObject();
+		persion.put("name", "Tran Dang Tin");
+		persion.put("age", "26");
+		persion.put("handsome", "yes");
+		persion.put("sex", "Nam");
+		
+		JSONObject persion2 = new JSONObject();
+		persion.put("name", "Anh Duc Nguyen");
+		persion.put("age", "23");
+		persion.put("handsome", "no");
+		persion.put("sex", "nu");
+		
+		if (!id.equals("001") && !id.equals("002") && !id.equals("All")) {
+			jsonObject.put("statusCode", Constants.STATUS_FAIL);
+			jsonObject.put("message", "Khong tim thay voi id = " + id);
+		}
+		
+		else if (id.equals("00")) {
+			jsonObject.put("statusCode", Constants.STATUS_OK);
+			jsonObject.put("persion", persion);
+		} else if (id.equals("002")) {
+			jsonObject.put("statusCode", Constants.STATUS_OK);
+			jsonObject.put("persion", persion2);
+		} else if (id.equals("All")) {
+			ArrayList<JSONObject> persions = new ArrayList<JSONObject>();
+			persions.add(persion);
+			persions.add(persion2);
+			jsonObject.put("statusCode", Constants.STATUS_OK);
+			jsonObject.put("persions", persions);
+		}
+		
 		jsonObject.put("answer", "Co. Rat dep trai");
 		ResponseEntity<String> retult = new ResponseEntity<String>(jsonObject.toString(), new HttpHeaders(),
 				HttpStatus.OK);
