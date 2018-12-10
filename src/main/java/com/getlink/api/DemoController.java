@@ -1,6 +1,5 @@
 package com.getlink.api;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -32,7 +31,7 @@ public class DemoController {
 		return retult;
 	}
 	
-	@RequestMapping(value = "/anhtindeptrai", method = RequestMethod.GET)
+	@RequestMapping(value = "/anhtindeptrai2", method = RequestMethod.GET)
 	@CrossOrigin
 	public ResponseEntity<?> getDemo1(@RequestParam String id) throws JSONException {
 		JSONObject jsonObject = new JSONObject();
