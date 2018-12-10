@@ -67,7 +67,6 @@ public class DemoController {
 			jsonObject.put("persions", persions);
 		}
 		
-		jsonObject.put("answer", "Co. Rat dep trai");
 		ResponseEntity<String> retult = new ResponseEntity<String>(jsonObject.toString(), new HttpHeaders(),
 				HttpStatus.OK);
 		return retult;
