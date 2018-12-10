@@ -43,17 +43,16 @@ public class DemoController {
 		persion.put("sex", "Nam");
 		
 		JSONObject persion2 = new JSONObject();
-		persion.put("name", "Anh Duc Nguyen");
-		persion.put("age", "23");
-		persion.put("handsome", "no");
-		persion.put("sex", "nu");
+		persion2.put("name", "Anh Duc Nguyen");
+		persion2.put("age", "23");
+		persion2.put("handsome", "no");
+		persion2.put("sex", "nu");
 		
 		if (!id.equals("001") && !id.equals("002") && !id.equals("All")) {
 			jsonObject.put("statusCode", Constants.STATUS_FAIL);
 			jsonObject.put("message", "Khong tim thay voi id = " + id);
 		}
-		
-		else if (id.equals("00")) {
+		else if (id.equals("001")) {
 			jsonObject.put("statusCode", Constants.STATUS_OK);
 			jsonObject.put("persion", persion);
 		} else if (id.equals("002")) {
