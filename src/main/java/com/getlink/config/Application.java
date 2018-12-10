@@ -11,7 +11,7 @@ public class Application {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/getlinkvip").allowedOrigins("http://localhost");
+                registry.addMapping("/anhtindeptrai").allowedOrigins("http://localhost");
             }
         };
     }
