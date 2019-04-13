@@ -18,6 +18,32 @@
 		width: 150px;
 		height: 50px
 	}
+	.loader {
+	  display: none;
+	  border: 16px solid #f3f3f3;
+	  border-radius: 50%;
+	  border-top: 16px solid #3498db;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite; /* Safari */
+	  animation: spin 2s linear infinite;
+	  margin: auto;
+	}
+	
+	/* Safari */
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+	
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+	
+	.activedLoader {
+		
+	}
 </style>
 <div class="container">
   <h1>GET LINK VIP FSHARE</h1>
@@ -31,12 +57,19 @@
     <div class="form-group">
       <a id="linkVip" target="_blank"></a>
     </div>
+    
+    
   </form>
+</div>
+<div class="form-group">
+      <div class="loader"></div>
 </div>
 
 </body>
 <script type="text/javascript">
 	$("#btnGetLink").click(function(){
+		$(".loader").css("display", "block");
+		$(".container").css("opacity", "0.5");
 		  var link = $("#link").val();
 		  $.ajax({url: "/fshare/getlinkvip?linkFshare=" + link, success: function(result){
 			  	var result = JSON.parse(result);
@@ -46,6 +79,8 @@
 		    	} else {
 		    		alert("Xin hãy kiểm tra lại usernam và password")
 		    	}
+		    	$(".loader").css("display", "none");
+		    	$(".container").css("opacity", "1");
 		  }});
 	});
 </script>
