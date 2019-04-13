@@ -13,7 +13,7 @@ public class User {
 	
 	@SuppressWarnings("deprecation")
 	public String getLoginData(String fs){
-		String data = "fs_csrf="
+		String data = "_csrf-app="
 				+ fs
 				+ "&LoginForm"
 				+ URLEncoder.encode("[email]")
@@ -24,11 +24,11 @@ public class User {
 				+ "="
 				+ URLEncoder.encode(userpassword)
 				+ "&LoginForm"
-				+ URLEncoder.encode("[checkloginpopup]")
-				+ "=0&LoginForm"
 				+ URLEncoder.encode("[rememberMe]")
-				+ "=0&yt0="
-				+ URLEncoder.encode("Đăng nhập");
+				+ "=0"
+				+ "&LoginForm"
+				+ URLEncoder.encode("[rememberMe]")
+				+ "=1";
 		return data;
 	}
 }

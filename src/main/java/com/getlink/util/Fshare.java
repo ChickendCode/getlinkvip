@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class Fshare {
 	public String getFsCode(CookieManager cookie, String url) {
-		Pattern p = Pattern.compile("<input type=\"hidden\" value=\"(\\w*)\" name=\"fs_csrf\" />", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("content=\"(.*?)\"");
 		Matcher m;
 		CookieHandler.setDefault(cookie);
 		String fs= "";
@@ -24,11 +24,10 @@ public class Fshare {
 			String tmp = "";
 			while ((tmp = br.readLine()) != null) {
 				m = p.matcher(tmp);
-				if (m.find()) {
+				if ((m.find() && tmp.contains("name=\"csrf-token\""))) {
 					fs = m.group(1);
 					break;
 				}
-				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,11 +78,12 @@ public class Fshare {
 		if (m.find()) {
 			linkCode = m.group(1);
 		}
-		String postData = "fs_csrf="
+		String postData = "_csrf-app="
 				+ fs
-				+ "&DownloadForm%5Bpwd%5D=&DownloadForm%5Blinkcode%5D="
+				+ "&linkcode="
 				+ linkCode
-				+ "&ajax=download-form&undefinned=undefinned";
+				+ "&withFcode5=0"
+				+ "&fcode=";
 		OutputStream os;
 		BufferedReader br;
 		String tmp;
@@ -109,4 +109,23 @@ public class Fshare {
 		}
 		return result;
 	}
+	
+	public static void main( String args[] ) {
+	      // String to be scanned to find the pattern.
+	      String line = "<meta content=\"EKn-1YVAurzJIkKvN6DD4vp7DBQIBeobqcy_LtXbT2Ik7aGR5xjW7_pGb5h6kICArE05WG9Uoi_ovctImZYMWw==\">";
+	      String pattern = "content=\"(.*?)\"";
+
+	      // Create a Pattern object
+	      Pattern r = Pattern.compile(pattern);
+
+	      // Now create matcher object.
+	      Matcher m = r.matcher(line);
+	      
+	      if (m.find( )) {
+	         System.out.println("Found value: " + m.group(0) );
+	         System.out.println("Found value: " + m.group(1) );
+	      } else {
+	         System.out.println("NO MATCH");
+	      }
+	   }
 }
